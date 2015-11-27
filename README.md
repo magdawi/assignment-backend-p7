@@ -20,7 +20,7 @@ or at http://localhost:3000/todo.html
 DOCUMENTATION:
 
 -----------------------------------------------------------------------------------------------------------------
-1. Load Seed Data
+• Load Seed Data
 
 What is seed data? 
 	Seed data is dummy data to test the application. It fills the database.
@@ -34,7 +34,7 @@ And what was that rake task to load it?
 	rake db:setup  (rake db:migrate + rake db:seed)		
 		
 -----------------------------------------------------------------------------------------------------------------
-2. Use rails-ujs: Unobstrusive Javascript
+• Use rails-ujs: Unobstrusive Javascript
 
 Look at the HTML-Code for deleting an ingredient: where does the javascript to confirm come from?
 	from the file /app/views/ingredients/index.html.erb
@@ -44,7 +44,7 @@ Try applying the same to a normal navigation link - does it also show the confir
 	yes, if you add  "data: { confirm: 'Are you sure?' }" to a normal navigation link, the popup appears too
 
 -----------------------------------------------------------------------------------------------------------------
-3. Use Ecmascript 6
+• Use Ecmascript 6
 
 Add the following two lines to the Gemfile, bundle + restart the server
 
@@ -78,7 +78,7 @@ Add the following two lines to the Gemfile, bundle + restart the server
 	After that a new HelloWorld object is created and the method sayHello() with the actual value is triggered.
 
 -----------------------------------------------------------------------------------------------------------------
-4. Switch on Turbolinks
+• Switch on Turbolinks
 
 Uncomment turbolink in the Gemfile, bundle + restart the server
 
@@ -93,11 +93,24 @@ Can you detect a difference?
 Turbolinks are on by default, you have been using them in your other rails apps from the start.
 
 -----------------------------------------------------------------------------------------------------------------
-5. Use AJAX with Rails
+• Use AJAX with Rails
 
 In page ingredients:
 the 'edit' link should not link to another page, but load the edit-form right into the current page,
 replacing the display of the ingredient name
+
+edited ingredients_controller (if html is needed render edit.html.erb, if js is needed render 'edit.js.erb'):
+	def edit
+	    respond_to do |format|
+	      format.html { render :edit }
+	      format.js   { render 'edit.js.erb' }
+	    end
+	end
+
+created 'edit.js.erb' with (replaces span text with input field):
+	$("#ingredient_<%= @ingredient.id %>").find('span').html("<%= j render 'form' %>");
+
+enabled protect_from_forgery in application_controller
 
 -----------------------------------------------------------------------------------------------------------------
 

@@ -19,6 +19,10 @@ class IngredientsController < ApplicationController
 
   # GET /ingredients/1/edit
   def edit
+    respond_to do |format|
+      format.html { render :edit }
+      format.js   { render 'edit.js.erb' }
+    end
   end
 
   # POST /ingredients
