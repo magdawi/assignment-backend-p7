@@ -62,7 +62,20 @@ Add the following two lines to the Gemfile, bundle + restart the server
 
 	Check if it is transpiled to javascript correctly!
 
-	Now add code in /app/assets/javascript/main.js.es6 to use this class for the Greetings-Form on the homepage. Be unobstrusive about it!
+	it's been transpiled to es5 correctly
+
+	Now add code in /app/assets/javascript/main.js.es6 to use this class for the Greetings-Form on the homepage. Be unobtrusive about it!
+	added code to main.js.es6
+		$(document).ready(function() {
+			$("[data-hello]").click(function(e){
+				new HelloWorld(e.target.attributes[0].value).sayHello()
+			})
+		})
+	We passed parameter "e" to access the current button data value. 
+	After that a new HelloWorld object is created and the method sayHello() with the actual value is triggered.
+
+	
+
 -----------------------------------------------------------------------------------------------------------------
 4. Switch on Turbolinks
 
