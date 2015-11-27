@@ -1,3 +1,6 @@
+fhs37248 Magdalena Wimmer
+fhs36111 Bernhard Steger
+
 Recipes
 =======
 
@@ -74,13 +77,27 @@ Add the following two lines to the Gemfile, bundle + restart the server
 	We passed parameter "e" to access the current button data value. 
 	After that a new HelloWorld object is created and the method sayHello() with the actual value is triggered.
 
-	
-
 -----------------------------------------------------------------------------------------------------------------
 4. Switch on Turbolinks
 
+Uncomment turbolink in the Gemfile, bundle + restart the server
+
+Add the following to application.js:
+
+//= require turbolinks
+
+Can you detect a difference?
+	no, we can't detect differences.
+	turbolinks are a little bit faster than normal links but it's not visible for the naked eye.
+
+Turbolinks are on by default, you have been using them in your other rails apps from the start.
+
 -----------------------------------------------------------------------------------------------------------------
 5. Use AJAX with Rails
+
+In page ingredients:
+the 'edit' link should not link to another page, but load the edit-form right into the current page,
+replacing the display of the ingredient name
 
 -----------------------------------------------------------------------------------------------------------------
 
