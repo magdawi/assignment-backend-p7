@@ -1,0 +1,20 @@
+<% content_for :heading do %>
+  <h1>Rezepte</h1>
+  <p><%= @description %>.</p>
+<% end %>
+
+
+<% @recipes.each do |recipe| %>
+<h2><%= link_to recipe.name, recipe %></h2>
+  <div class="row">
+    <div class="col-xs-3">
+        <p> Schwierigkeit: <%= recipe.difficulty %> </p>
+        <p> Bewertung: <%= recipe.grade %> </p>
+        <p> Für <%= recipe.quantity %> Personen </p>
+        <p> Zubereitungszeit: <%= recipe.minutes %> Minuten </p>
+    </div>
+    <div class="col-xs-6">
+      <%= render :partial => "ingredients", :locals => { :r => recipe } %>
+    </div>
+  </div>
+<% end %>

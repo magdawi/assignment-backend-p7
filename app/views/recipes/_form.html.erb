@@ -1,0 +1,35 @@
+<%= bootstrap_form_for(@recipe) do |f| %>
+  <% if @recipe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+      <% @recipe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.text_field :name %>
+  <%= f.text_area :instructions %>
+  <%= f.number_field :difficulty %>
+  <%= f.number_field :grade %>
+  <%= f.number_field :quantity %>
+  <%= f.number_field :minutes %>
+
+  <% Ingredient.all.each do |ingredient| %>
+    <div class="checkbox">
+      <label>
+        <%= check_box_tag "recipe[ingredient_ids][]", ingredient.id, @recipe.ingredient_ids.include?(ingredient.id) %>
+        <%= ingredient.name %>
+      </label>
+    </div>
+  <% end %>
+
+  <p><%= link_to "Neue Zutat hinzufügen", new_ingredient_path, id: "new_ingredient_link" %></p>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
