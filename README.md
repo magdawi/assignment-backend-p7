@@ -74,7 +74,7 @@ Add the following two lines to the Gemfile, bundle + restart the server
 				new HelloWorld(e.target.attributes[0].value).sayHello()
 			})
 		})
-	
+
 	We passed parameter "e" to access the current button data value. 
 	After that a new HelloWorld object is created and the method sayHello() with the actual value is triggered.
 
@@ -99,6 +99,9 @@ Turbolinks are on by default, you have been using them in your other rails apps 
 In page ingredients:
 the 'edit' link should not link to another page, but load the edit-form right into the current page,
 replacing the display of the ingredient name
+
+edited ingredients/index.html.erb
+	added attribute "remote: true" to edit link
 
 edited ingredients_controller (if html is needed render edit.html.erb, if js is needed render 'edit.js.erb'):
 	def edit
