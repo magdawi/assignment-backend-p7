@@ -44,5 +44,13 @@ group :development, :test do
   gem 'spring'
 end
 
+#sprockets
 gem 'sprockets'
 gem 'sprockets-es6', require: 'sprockets/es6'
+
+#rails 12 factor
+gem 'rails_12factor', group: :production
+
+#ruby
+ruby "2.2.3"
+
