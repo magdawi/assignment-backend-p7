@@ -6,7 +6,9 @@ gem 'rails', '4.2.0'
 
 # Use pg as the database for Active Record
 gem 'pg'
-gem 'sqlite3'
+
+#enable sqlite3 gem for local work
+#gem 'sqlite3'
 
 # ======== Asset Pipeline ===========
 # Use SCSS for stylesheets
