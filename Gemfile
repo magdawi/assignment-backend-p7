@@ -4,8 +4,9 @@ source 'https://rubygems.org'
 # Rails Version currently supported by railsinstallier (as of oct 2015)
 gem 'rails', '4.2.0'
 
-# Use sqlite3 as the database for Active Record
+# Use pg as the database for Active Record
 gem 'pg'
+gem 'sqlite3'
 
 # ======== Asset Pipeline ===========
 # Use SCSS for stylesheets
