@@ -101,7 +101,7 @@ the 'edit' link should not link to another page, but load the edit-form right in
 replacing the display of the ingredient name
 
 edited ingredients/index.html.erb
-	added attribute "remote: true" to edit link
+	added attribute "remote: true" to edit link1
 
 edited ingredients_controller (if html is needed render edit.html.erb, if js is needed render 'edit.js.erb'):
 	def edit
