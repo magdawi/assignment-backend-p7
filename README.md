@@ -70,10 +70,11 @@ Add the following two lines to the Gemfile, bundle + restart the server
 	Now add code in /app/assets/javascript/main.js.es6 to use this class for the Greetings-Form on the homepage. Be unobtrusive about it!
 	added code to main.js.es6
 		$(document).ready(function() {
-			$("[data-hello]").click(function(e){
+			$(document).on("click", "[data-hello]", function(e){
 				new HelloWorld(e.target.attributes[0].value).sayHello()
 			})
 		})
+	
 	We passed parameter "e" to access the current button data value. 
 	After that a new HelloWorld object is created and the method sayHello() with the actual value is triggered.
 
